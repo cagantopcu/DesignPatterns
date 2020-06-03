@@ -4,19 +4,29 @@ using System.Text;
 
 namespace Builder
 {
-    public class Motocycle
+    public class MotocycleBuilder
     {
         private IBrake _brake = null;
         private IEngine _engine = null;
         private ITyre _tyre = null;
 
-        public Motocycle(MotocycleBuilder builder)
+        public MotocycleBuilder SetBrake(IBrake value)
         {
-            this._brake = builder.GetBrake();
-            this._tyre = builder.GetTyre();
-            this._engine = builder.GetEngine();
+            this._brake = value;
+            return this;
         }
 
+        public MotocycleBuilder SetEngine(IEngine value)
+        {
+            this._engine = value;
+            return this;
+        }
+
+        public MotocycleBuilder SetTyre(ITyre value)
+        {
+            this._tyre = value;
+            return this;
+        }
         public IBrake GetBrake()
         {
             return this._brake;
@@ -32,6 +42,4 @@ namespace Builder
             return this._tyre;
         }
     }
-
-   
 }

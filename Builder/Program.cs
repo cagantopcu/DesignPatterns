@@ -9,27 +9,27 @@ namespace Builder
     {
         static void Main(string[] args)
         {
-            IMotocycle bike = new Motocycle();
-            bike.BuildTyre(new Pirelli());
-            bike.BuildEngine(new SingleCylinder250cc());
-            bike.BuildBrake(new Brembo());
+            MotocycleBuilder bikeBuilder = new MotocycleBuilder();
+            bikeBuilder.SetBrake(new Brembo()).SetEngine(new SingleCylinder250cc()).SetTyre(new Pirelli());
+            
+            Motocycle bike = new Motocycle(bikeBuilder);
 
-            Console.WriteLine("--- 1 ---");
+            Console.WriteLine("--- Bike 1 ---");
             Console.WriteLine(bike.GetTyre().GetBrandName());
             Console.WriteLine(bike.GetBrake().GetBrandName());
             Console.WriteLine(bike.GetEngine().GetBrandName());
 
 
-            IMotocycle bikeTwo = new Motocycle();
-            bikeTwo.BuildTyre(new Bridgestone());
-            bikeTwo.BuildEngine(new Boxer1200cc());
-            bikeTwo.BuildBrake(new Brembo());
+            MotocycleBuilder bikeBuilder2 = new MotocycleBuilder();
+            bikeBuilder2.SetBrake(new Brembo()).SetEngine(new Boxer1200cc()).SetTyre(new Bridgestone());
 
-            Console.WriteLine("--- 2 ---");
-            Console.WriteLine(bikeTwo.GetTyre().GetBrandName());
-            Console.WriteLine(bikeTwo.GetBrake().GetBrandName());
-            Console.WriteLine(bikeTwo.GetEngine().GetBrandName());
+            Motocycle bike2 = new Motocycle(bikeBuilder2);
 
+            Console.WriteLine("--- Bike 2 ---");
+            Console.WriteLine(bike2.GetTyre().GetBrandName());
+            Console.WriteLine(bike2.GetBrake().GetBrandName());
+            Console.WriteLine(bike2.GetEngine().GetBrandName());
+            
         }
     }
 }

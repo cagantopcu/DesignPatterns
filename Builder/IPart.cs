@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Builder
 {
-   public interface IPart
+    public interface IPart
     {
         string GetBrandName();
     }

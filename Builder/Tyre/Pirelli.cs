@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Builder.Tyre
 {
-    class Pirelli : ITyre
+    public class Pirelli : ITyre
     {
         public string GetBrandName() => "Pirelli";
     }
